@@ -19,10 +19,10 @@ cask "swiftnote" do
   app "SwiftNote.app"
 
   # SwiftNote isn't notarised yet, so macOS would otherwise refuse to open it the first time.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/SwiftNote.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/SwiftNote.app"],
+        must_succeed: false
   end
 
   # Your notes in ~/Library/Application Support/SwiftNote and ~/Desktop/Swiftnote are deliberately left alone.
