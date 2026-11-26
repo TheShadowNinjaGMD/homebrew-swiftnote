@@ -14,7 +14,7 @@ cask "swiftnote" do
 
   # SwiftNote updates itself with Sparkle.
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "SwiftNote.app"
 
